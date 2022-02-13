@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
 import counter from './counter';
+import todo from './todo';
 
 const rootReducer = combineReducers({
 	counter,
+	todo,
 });
 
 // 루트 리듀서를 내보내주세요.
