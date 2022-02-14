@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@modules/index';
-import { addTodo, deleteTodo } from '@modules/todo';
+import { addTodo, deleteTodo, updateTodo } from '@modules/todo';
 import TodoInsert from '@components/TodoInsert';
 import TodoList from '@components/TodoList';
 
@@ -18,10 +18,14 @@ function TodoContainer() {
 		dispatch(deleteTodo(targetId));
 	};
 
+	const updateItem = (targetId: number, text: string) => {
+		dispatch(updateTodo(targetId, text));
+	};
+
 	return (
 		<>
 			<TodoInsert createItem={createItem} />
-			<TodoList todosSelctor={todosSelctor} deleteItem={deleteItem} />
+			<TodoList updateItem={updateItem} todosSelctor={todosSelctor} deleteItem={deleteItem} />
 		</>
 	);
 }
